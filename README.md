@@ -1,63 +1,100 @@
-# Spatial-Analysis-of-Crime-Occurrence-and-High-School-Dropout-Rates-in-Pennsylvania
+# Spatial Analysis of Crime and High School Dropout Rates in Pennsylvania
 
-Measure of spatial autocorrelation for both total crime and high school dropout counts for Pennsylvania at the county level with a temporal resolution of 2021 to 2022 
+This project uses spatial statistics to examine the relationship between **county-level crime rates** and **high school dropout rates** in **Pennsylvania (2021–2022)**. The analysis was conducted using **ArcGIS Pro** and **GeoDa**, focusing on spatial autocorrelation and geographic clustering.
 
-<h2>Description</h2>
-This analysis will use the state of Pennsylvania as a case study from the years 2021 to 2022. The main research questions that this analysis aims to answer are, 1. What counties contain the highest rates of crimes, 2. What counties have the highest rates of high school dropouts, and 3. How does the spatial autocorrelation of each variable compare? The purpose of these questions is to determine which counties have the lowest graduation rate and compare them to the corresponding crime rate. The premise of this study is to properly inform young adults and their parents of the risks that their area has on crime and high school dropout rates to present them with the best opportunity to be successful in life. 
-<br />
-<br />
-A simple observation of the dataset used for this analysis indicates that there are similarities between the crime and dropout data for the year 2021 to 2022. The top five counties with the highest rates of crime are Philadelphia, Allegheny, Montgomery, Delaware, and Bucks. The top five counties with the highest rates of high school dropouts are Philadelphia, Dauphin, Allegheny, Chester, and Berks. Applying this dataset to a choropleth map gives a visual representation of where extreme values are located.
-<br />
-<br />
-This analysis is supported even further by measuring spatial autocorrelation using a univariate Local Moran’s I tool in Geoda. Once spatial autocorrelation was measured, it was determined that both variables examined in this analysis (crime rate per county and high school dropout rate per county), displayed similar results. Both variables exhibit positive spatial autocorrelation. Moran’s I value for crime was calculated to be 0.166 and high school dropout was 0.106. The supporting cluster maps indicated that both have two prominent clusters. The northern end of Pennsylvania presents a cluster that is associated with low-low values and the southeastern cluster is associated with high-high values meaning that counties with high rates of crime and high school dropouts are surrounded by similar counties. LISA significance maps also corroborate this analysis by indicating that significant events in the dataset are also located in the same general clusters. Counties that have high rates of crime and high school dropouts (southeastern area of Pennsylvania) and also demonstrate positive spatial autocorrelation include Delaware, Philadelphia, Montgomery, and Bucks. Some of the safest counties in this dataset that have low rates of crime and high school dropouts as well as exhibiting positive spatial autocorrelation include Mckean, Potter, Lycoming, Clinton, Cameron, Elk, Forest, Clarion, and Jefferson.
-<br />
-<br />
-One of the limitations of this dataset is the spatial resolution. The coarsest resolution available was at the county level because crime rate would not go any lower. The finest resolution for high school dropout rates was at the singular school level. Therefore, the preciseness of this measurement was severely limited. 
+---
 
-<br />
+## 🔍 Project Overview
 
+Statistically, high school dropouts are 3.5 times more likely to be arrested than graduates, and 68% of inmates do not hold a high school diploma. This project investigates whether geographic patterns in crime correlate with high school dropout rates to better inform educators and policymakers.
 
-<h2>Software Used</h2>
+**Research Questions:**
+1. Which counties have the highest crime and dropout rates?
+2. Are these variables spatially autocorrelated?
+3. Do their spatial patterns overlap?
 
-- <b>ArcGIS Pro</b> 
-- <b>GeoDA</b>
-- <b>Microsoft Excel</b> 
+---
 
-<h2>Analysis walk-through:</h2>
+## 🧩 Problem Statement
 
-<p align="center">
-Define study area and gather data: <br/>
+Understanding the spatial dynamics of education and crime can inform interventions in at-risk communities. By analyzing the spatial relationship between crime and dropout rates, we can identify clusters of concern and opportunity.
 
-- Crime data obained from PA uniform crime reporting system (ucr.pa.gov)
-  
-- High school dropout data obtained from education.pa.gov
-  
-- Shapefile of PA counties obtained from pasda.psu.edu
-  
-<img src="https://i.imgur.com/VRCDpKC.png" height="80%" width="80%" />
-<br />
-<br />
-Convert to same spatial resolution: <br/>
-<img src="https://i.imgur.com/FvGPrF8.png" height="80%" width="80%" />
-<br />
-<br />
-Join data with counties shapefile in ArcGIS Pro and create simple percentile map for each variable map <br/>
-<img src="https://i.imgur.com/wANQaqW.png" height="80%" width="80%" />
-<img src="https://i.imgur.com/h1gVaZa.png" height="80%" width="80%" />
-<br />
-<br />
-Create spatially lagged variable by generating contiguity-based spatial weight table in GeoDA:  <br/>
-<img src="https://i.imgur.com/qFTLZh2.png" height="80%" width="80%" />
-<br />
-<br />
-Generate Local Moran's I scatterplot, LISA Cluster Map, and LISA Significance Map and visually interpret results:  <br/>
-<img src="https://i.imgur.com/scxg9T1.png" height="80%" width="80%" />
-<img src="https://i.imgur.com/ZZsgoXQ.png" height="80%" width="80%" />
-<img src="https://i.imgur.com/zuoGkcs.png" height="80%" width="80%" />
-<img src="https://i.imgur.com/vSRO2B9.png" height="80%" width="80%" />
-<img src="https://i.imgur.com/ooEmQ5d.png" height="80%" width="80%" />
-<img src="https://i.imgur.com/XeFnCI7.png" height="80%" width="80%" />
-<br />
-<br />
+---
 
-</p>
+## 📊 Data Sources
+
+| Dataset | Source | Description |
+|--------|--------|-------------|
+| Crime Data | [ucr.pa.gov](https://www.ucr.pa.gov) | Total crimes by county (2021–2022) |
+| Dropout Data | [education.pa.gov](https://www.education.pa.gov) | Dropouts aggregated from school to county level |
+| County Boundaries | [PASDA](https://www.pasda.psu.edu) | Pennsylvania county shapefiles |
+
+---
+
+## 🛠️ Tools & Technologies
+
+- **ArcGIS Pro** – Spatial joins, data processing
+- **GeoDa** – Spatial autocorrelation, LISA analysis
+- **Excel** – Data aggregation via pivot tables
+- **Python (optional)** – Data cleaning automation (future expansion)
+
+---
+
+## 📌 Methodology
+
+1. **Data Aggregation**
+   - Crime data manually scraped and totaled by county.
+   - Dropout data aggregated using Excel pivot tables.
+
+2. **Data Join & Cleaning**
+   - Joined crime/dropout data with county shapefiles in ArcGIS Pro.
+   - Exported cleaned shapefile for spatial analysis.
+
+3. **Spatial Analysis in GeoDa**
+   - Created Queen contiguity-based spatial weights matrix.
+   - Ran **Local Moran’s I** for both variables.
+   - Generated:
+     - Choropleth Maps
+     - Moran's I Scatterplots
+     - LISA Cluster Maps
+     - LISA Significance Maps
+
+---
+
+## 📈 Results
+
+| Metric | Crime Rate | Dropout Rate |
+|--------|------------|--------------|
+| **Top Counties** | Philadelphia, Allegheny, Montgomery | Philadelphia, Dauphin, Allegheny |
+| **Moran’s I** | 0.166 | 0.106 |
+| **Clustering** | High-high clusters in Southeast PA | Similar high-high patterns |
+
+**Key Insights:**
+- **Positive spatial autocorrelation** found in both datasets.
+- Clusters of high crime and dropout rates aligned in southeastern counties: *Philadelphia, Delaware, Montgomery, Bucks*.
+- Low-low clusters (safe and stable counties) included *McKean, Potter, Clinton, Elk, and Clarion*.
+
+---
+
+## 🗺️ Visuals
+
+> 📸 Add figures/screenshots to your GitHub repo under `/figures/` and embed them below like so:
+
+**Crime Rate Choropleth**  
+![Crime Map](figures/crime_choropleth.png)
+
+**Dropout Rate Choropleth**  
+![Dropout Map](figures/dropout_choropleth.png)
+
+**Moran’s I Scatterplots**  
+![Moran Crime](figures/moran_crime.png)  
+![Moran Dropout](figures/moran_dropout.png)
+
+**LISA Cluster & Significance Maps**  
+![Cluster Crime](figures/lisa_cluster_crime.png)  
+![Cluster Dropout](figures/lisa_cluster_dropout.png)
+
+---
+
+## 📂 Repository Structure
+
