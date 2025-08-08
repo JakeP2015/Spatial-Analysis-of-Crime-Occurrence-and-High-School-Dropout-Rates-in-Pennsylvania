@@ -78,23 +78,22 @@ Understanding the spatial dynamics of education and crime can inform interventio
 
 ## 🗺️ Visuals
 
-> 📸 Add figures/screenshots to your GitHub repo under `/figures/` and embed them below like so:
-
 **Crime Rate Choropleth**  
-![Crime Map](figures/crime_choropleth.png)
+![Crime Rate Choropleth](https://i.imgur.com/TIwSGPv.jpeg)
 
 **Dropout Rate Choropleth**  
-![Dropout Map](figures/dropout_choropleth.png)
+![Dropout Rate Choropleth](https://i.imgur.com/dHhQImR.jpeg)
 
-**Moran’s I Scatterplots**  
-![Moran Crime](figures/moran_crime.png)  
-![Moran Dropout](figures/moran_dropout.png)
+**Moran’s I Scatterplot for Crime Rate**  
+![Moran's I Crime Rate](https://i.imgur.com/LvqYnx5.jpeg)
 
-**LISA Cluster & Significance Maps**  
-![Cluster Crime](figures/lisa_cluster_crime.png)  
-![Cluster Dropout](figures/lisa_cluster_dropout.png)
+**Moran's I Scatterplot for High School Dropouts**
+![Moran's I High School Dropouts](https://i.imgur.com/i4cAS86.jpeg)
 
----
+**LISA Cluster & Significance Maps for Crime Rate**  
+![LISA Cluster Crime Rate](https://i.imgur.com/uhCirhA.jpeg)
+![LISA Significance Crime Rate](https://i.imgur.com/dJaW45U.jpeg)
 
-## 📂 Repository Structure
-
+**LISA Cluster & Significance Maps for High School Dropouts**
+![LISA Cluster High School Dropouts](https://i.imgur.com/bQRHKDd.jpeg)
+![LISA Significance High School Dropouts](https://i.imgur.com/yjD9TKL.jpeg)
